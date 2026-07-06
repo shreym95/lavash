@@ -3,6 +3,32 @@ const toast = document.getElementById("toast");
 const navbar = document.getElementById("navbar");
 
 const COPY_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+
+/* Kawaii cat peeking over the header card */
+const CAT_MASCOT = `<svg class="cat-mascot" viewBox="0 0 100 70" aria-hidden="true">
+  <!-- paws gripping the edge -->
+  <ellipse class="cat-paw" cx="28" cy="60" rx="9" ry="6"/>
+  <ellipse class="cat-paw" cx="72" cy="60" rx="9" ry="6"/>
+  <!-- ears -->
+  <path class="cat-head" d="M24 30 L20 6 L44 22 Z"/>
+  <path class="cat-head" d="M76 30 L80 6 L56 22 Z"/>
+  <path class="cat-ear-inner" d="M27 27 L25 12 L39 22 Z"/>
+  <path class="cat-ear-inner" d="M73 27 L75 12 L61 22 Z"/>
+  <!-- head -->
+  <ellipse class="cat-head" cx="50" cy="46" rx="30" ry="26"/>
+  <!-- eyes -->
+  <ellipse class="cat-eye" cx="38" cy="44" rx="4.5" ry="6"/>
+  <ellipse class="cat-eye" cx="62" cy="44" rx="4.5" ry="6"/>
+  <circle class="cat-eye-shine" cx="39.5" cy="42" r="1.6"/>
+  <circle class="cat-eye-shine" cx="63.5" cy="42" r="1.6"/>
+  <!-- blush -->
+  <ellipse class="cat-blush" cx="28" cy="52" rx="6" ry="3.4"/>
+  <ellipse class="cat-blush" cx="72" cy="52" rx="6" ry="3.4"/>
+  <!-- nose + mouth -->
+  <path class="cat-line" d="M50 50 v3 M50 53 q-4 4 -8 1 M50 53 q4 4 8 1"/>
+  <!-- whiskers -->
+  <path class="cat-whisker" d="M14 46 h14 M15 52 h13 M72 46 h14 M72 52 h13"/>
+</svg>`;
 const CHECK_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>`;
 
 function showToast(msg) {
@@ -114,6 +140,8 @@ function renderNav(sections) {
 function renderHeader(basics) {
   const header = document.createElement("div");
   header.className = "header";
+
+  header.insertAdjacentHTML("beforeend", CAT_MASCOT);
 
   const avatar = document.createElement("div");
   avatar.className = "avatar";

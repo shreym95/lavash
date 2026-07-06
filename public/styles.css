@@ -161,7 +161,7 @@ html, body {
   padding: 28px;
   margin-bottom: 24px;
   box-shadow: var(--elev-2);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .avatar {
@@ -496,14 +496,101 @@ html, body {
 }
 
 .toast::before {
-  content: "✓ ";
-  color: var(--success);
-  font-weight: 700;
+  content: "🐾 ";
 }
 
 .toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* ============================= Kawaii cat theme ============================= */
+:root {
+  --cat-fur: #ece6ff;
+  --cat-ink: #2a2730;
+}
+
+/* Shared cat part colors (mascot + footer) */
+.cat-head, .cat-body, .cat-paw { fill: var(--cat-fur); }
+.cat-ear-inner { fill: var(--tertiary); }
+.cat-eye { fill: var(--cat-ink); }
+.cat-eye-shine { fill: #ffffff; }
+.cat-blush { fill: var(--tertiary); opacity: 0.55; }
+.cat-line { fill: none; stroke: var(--cat-ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cat-whisker { fill: none; stroke: var(--outline); stroke-width: 1.4; stroke-linecap: round; opacity: 0.7; }
+
+/* Peeking mascot on the hero card */
+.cat-mascot {
+  position: absolute;
+  top: -36px;
+  right: 30px;
+  width: 88px;
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.35));
+  transform-origin: bottom center;
+  animation: catPeek .6s cubic-bezier(.2,.9,.3,1.3) .3s both, catBob 3.6s ease-in-out 1s infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes catPeek {
+  from { transform: translateY(28px) scale(.85); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes catBob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+/* Footer */
+.footer {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.footer-cat {
+  width: 150px;
+  height: auto;
+  opacity: 0.95;
+  filter: drop-shadow(0 3px 5px rgba(0,0,0,.3));
+}
+
+.footer-cat .zzz { animation: zzzFloat 3s ease-in-out infinite; }
+.cat-z { fill: var(--primary); font-family: "Roboto Flex", sans-serif; font-weight: 700; opacity: .8; }
+
+@keyframes zzzFloat {
+  0%   { opacity: .2; transform: translate(0, 4px); }
+  50%  { opacity: .9; transform: translate(0, -2px); }
+  100% { opacity: .2; transform: translate(0, 4px); }
+}
+
+.footer-text {
+  margin: 0;
+  color: var(--on-surface-variant);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+.footer-text .paw { font-style: normal; }
+
+.footer-text .meow {
+  color: var(--tertiary);
+  font-weight: 500;
+  cursor: default;
+  transition: transform .2s;
+  display: inline-block;
+}
+.footer-text .meow:hover { transform: rotate(-6deg) scale(1.12); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-mascot, .footer-cat .zzz { animation: none; }
 }
 
 /* ============================= Responsive ============================= */
@@ -514,4 +601,6 @@ html, body {
   .section-header { padding: 15px 17px; }
   .section-body { padding: 15px 17px 18px; }
   .navbar { padding: 10px 12px; }
+  .cat-mascot { width: 66px; top: -28px; right: 16px; }
+  .footer-cat { width: 120px; }
 }

@@ -7,6 +7,10 @@ details in a clean **Material You** dark UI with one-tap copy buttons, so
 filling out job applications from your laptop *or* your phone is quick and
 painless. A sleepy cat may or may not be involved. 😸
 
+![Lavash screenshot — Material You dark UI showing the sample resume](docs/screenshot.png)
+
+> *Shown with the bundled `resume.example.yaml` sample data.*
+
 ## ✨ Features
 
 - 🎨 **Material You (M3) dark theme** — tonal violet palette, state layers, expressive shape

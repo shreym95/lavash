@@ -343,6 +343,9 @@ async function init() {
     const data = await res.json();
 
     app.innerHTML = "";
+    if (data.basics && data.basics.name) {
+      document.title = `${data.basics.name} — Resume Reference`;
+    }
     app.appendChild(renderHeader(data.basics));
     app.appendChild(renderSummary(data.summary));
     app.appendChild(renderSkills(data.skills));

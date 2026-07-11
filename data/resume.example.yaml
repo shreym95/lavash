@@ -1,0 +1,66 @@
+# Copy this file to `resume.yaml` and fill in your own details.
+# `resume.yaml` is gitignored so your personal career info never gets committed.
+# Private phone + email live separately in `contact.local.yaml` (see contact.local.example.yaml).
+
+basics:
+  name: Ada Lovelace
+  title: "Senior Software Engineer · 8 Years Experience · Open to Remote"
+  location: London, UK
+  # phone + email live in data/contact.local.yaml (gitignored), merged at runtime
+  linkedin: linkedin.com/in/your-handle
+  github: github.com/your-handle
+
+summary: >
+  One or two sentences describing who you are, your core strengths, and what
+  kind of role you're looking for. Keep it punchy — this is the first thing a
+  recruiter copies.
+
+skills:
+  - category: Core Stack
+    items:
+      - Python
+      - SQL
+      - Your Primary Framework
+  - category: Platforms
+    items:
+      - Cloud Provider
+      - Container Runtime
+      - Git
+  - category: Practices
+    items:
+      - System Design
+      - Testing
+      - CI/CD
+
+experience:
+  - company: Example Corp
+    location: Remote
+    role: "Senior Engineer · Team Lead"
+    dates: "Jan 2023 – Present"
+    subroles:
+      - title: "Flagship Project"
+        dates: "Jan 2024 – Present"
+        bullets:
+          - "Describe an achievement with a metric — e.g. cut pipeline runtime by 60%."
+          - "Another bullet: what you built, the tech used, and the impact."
+      - title: "Earlier Project"
+        dates: "Jan 2023 – Dec 2023"
+        bullets:
+          - "Bullets support multiple sub-roles under one company."
+
+  - company: Previous Company
+    location: City, Country
+    role: Software Engineer
+    dates: "Jun 2019 – Dec 2022"
+    bullets:
+      - "A company without sub-roles uses a flat `bullets` list instead."
+      - "Each bullet gets its own one-tap copy button in the UI."
+
+certifications:
+  - "Some Relevant Certification (2024)"
+  - "Another Certification — In Progress"
+
+education:
+  - degree: "B.Sc – Computer Science"
+    school: Your University, City, Country
+    dates: "2013 – 2017"

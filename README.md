@@ -33,16 +33,27 @@ Resume app running:
 
 ## 🍽️ Feeding the Cat (editing your data)
 
-All content lives in [`data/resume.yaml`](data/resume.yaml). Edit it, then just
-**refresh the browser** — the server re-reads the file on every request, no
-restart required. 🐾
+Your personal data lives in two **gitignored** files, so nothing about you ever
+gets committed. Copy the templates once:
+
+```bash
+cp data/resume.example.yaml   data/resume.yaml          # your career info
+cp data/contact.local.example.yaml data/contact.local.yaml   # phone + email
+```
+
+Then edit `data/resume.yaml` (and `data/contact.local.yaml`) and just
+**refresh the browser** — the server re-reads the files on every request, no
+restart required. Contact details from `contact.local.yaml` are merged into the
+header at runtime. 🐾
 
 ## 🧶 Project Structure
 
 ```
 lavash/
 ├── server.js            # Express: static serving + GET /api/resume
-├── data/resume.yaml     # your resume, single source of truth
+├── data/
+│   ├── resume.example.yaml         # template → copy to resume.yaml (gitignored)
+│   └── contact.local.example.yaml  # template → copy to contact.local.yaml
 └── public/
     ├── index.html
     ├── styles.css       # Material You theme + cats

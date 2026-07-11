@@ -7,6 +7,7 @@ const yaml = require("js-yaml");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const DATA_PATH = path.join(__dirname, "data", "resume.yaml");
+const CONTACT_PATH = path.join(__dirname, "data", "contact.local.yaml");
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -14,6 +15,13 @@ app.get("/api/resume", (req, res) => {
   try {
     const raw = fs.readFileSync(DATA_PATH, "utf8");
     const data = yaml.load(raw);
+
+    // Merge private contact info (gitignored) into basics, if present.
+    if (fs.existsSync(CONTACT_PATH)) {
+      const contact = yaml.load(fs.readFileSync(CONTACT_PATH, "utf8")) || {};
+      data.basics = { ...data.basics, ...contact };
+    }
+
     res.json(data);
   } catch (err) {
     res.status(500).json({ error: "Failed to read resume data", details: err.message });

@@ -1,0 +1,4 @@
+# Copy this file to `contact.local.yaml` and fill in your real details.
+# `contact.local.yaml` is gitignored so your private info never gets committed.
+phone: "+00 0000000000"
+email: you@example.com
